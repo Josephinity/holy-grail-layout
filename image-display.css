@@ -1,0 +1,51 @@
+.collage {
+    width: 100%;
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr;
+    grid-template-columns: 1fr 40px 1fr 40px 1fr;
+    align-items: start;
+    padding-top: 10px;
+}
+
+.collage img {
+    max-width: 100%;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+
+.collage * {
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+.collage-1 {
+    z-index: 1;
+    transform: rotate(-3deg);
+}
+
+.collage-2 {
+    z-index: 2;
+    transform: rotate(3deg);
+}
+
+.collage-3 {
+    transform: rotate(5deg);
+}
+
+#image-1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 4;
+}
+
+#image-2 {
+    grid-column-start: 2;
+    grid-column-end: 5;
+}
+
+#image-3 {
+    grid-column-start: 4;
+    grid-column-end: 6;
+    grid-row-start: 2;
+}

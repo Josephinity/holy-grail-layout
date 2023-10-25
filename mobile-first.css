@@ -1,0 +1,219 @@
+/*
+================================
+SHARED CSS
+================================
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Dosis', sans-serif;
+    color: #1e4040;
+}
+
+img {
+    border-radius: 5px;
+    box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+header, footer {
+    background-color: #1e4040;
+    color: #71d99e;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.flex-container {
+    display: flex;
+}
+
+h1, h2, h3, h5, p {
+    padding: 10px 0;
+}
+
+/*
+================================
+CSS OUTER-CONTAINER STYLES
+================================
+*/
+
+#outer-container {
+    height: 100vh;
+    grid-template-rows: 70px 1fr;
+    grid-template-columns: 90px 1fr;
+    grid-template-areas:
+        "header-alias header-alias"
+        "inner-alias inner-alias";
+}
+
+nav {
+    grid-area: nav-alias;
+}
+
+#inner-container {
+    grid-area: inner-alias;
+    overflow-y: scroll;
+}
+
+/*
+================================
+HEADER STYLES
+================================
+*/
+header {
+    grid-area: header-alias;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 20px;
+}
+
+#left-header {
+    grid-column-start: 1;
+    justify-self: start;
+    align-self: center;
+}
+
+#menu {
+    align-self: end;
+    padding: 10px 5px;
+}
+
+#right-header {
+    align-items: center;
+    justify-content: end;
+}
+
+.header-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
+}
+
+.header-link:hover, .nav-link:hover, #menu:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/*
+================================
+NAV STYLES
+================================
+*/
+nav {
+    display: none !important;
+    padding: 20px;
+    flex-direction: column;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.show {
+    display: flex !important;
+}
+
+.toggle-grid {
+    grid-template-areas:
+        "header-alias header-alias"
+        "nav-alias inner-alias" !important;
+}
+
+/*
+================================
+INNER-CONTAINER STYLES
+================================
+*/
+#inner-container {
+    grid-template-rows: 1fr 60px;
+}
+
+#main {
+    flex-direction: column;
+}
+
+#content {
+    max-width: 700px;
+}
+
+#content, #sidebar {
+    padding: 20px 30px;
+    min-width: 300px;
+    border-left: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+================================
+BREAKPOINTS
+================================
+*/
+
+@media (min-width: 500px) {
+    #outer-container {
+        grid-template-areas:
+        "header-alias header-alias"
+        "nav-alias inner-alias" !important;
+    }
+
+    nav {
+        display: flex !important;
+        flex-direction: column;
+    }
+
+    #menu {
+        display: none;
+    }
+}
+
+@media (min-width: 850px) {
+    #main {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 1200px) {
+    #outer-container {
+        grid-template-columns: 1fr 700px 2fr;
+        grid-template-rows: 70px 1fr;
+        grid-template-areas:
+            "header-alias header-alias header-alias"
+            "nav-alias inner-alias inner-alias" !important;
+    }
+
+    header {
+        grid-template-columns: 1fr 700px 2fr;
+    }
+
+    #left-header {
+        justify-self: end;
+        padding-right: 10px;
+    }
+
+    #right-header {
+        grid-column-start: 3;
+        justify-self: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        padding-right: 15px;
+    }
+}
